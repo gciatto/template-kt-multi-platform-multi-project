@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+skinparam shadowing false
+
+interface Term
+interface Constant
+interface Atom {
+  + value: String
+  + {static} of(value: String): Atom
+}
+interface Truth {
+  + isTrue: Boolean
+  + isFail: Boolean
+  + {static} of(value: Boolean): Truth
+}
+
+Term <|-down- Constant
+
+Constant <|-down- Atom
+
+Atom <|-down- Truth
+
+@enduml

@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+skinparam shadowing false
+
+interface Term {
+  + isGround: Boolean
+  + variables: Sequence<Var>
+  + equals(other: Any): Boolean
+  + structurallyEquals(other: Term): Boolean
+  + freshCopy(): Term
+  + toString(): String
+}
+interface Constant {
+  + value: Any
+}
+
+Term <|-- Constant
+
+@enduml
